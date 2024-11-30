@@ -9,6 +9,7 @@ function LoginPage({ onLogin }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Simulate authentication logic
     if (formData.username && formData.password) {
       onLogin(formData.username);
     } else {
