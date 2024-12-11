@@ -1,20 +1,15 @@
 import React from 'react';
-import LoginPage from './component/login';
-import RegisterPage from './component/register';
-import Dashboard from './component/dashboard';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store/store';
+import ControlPanel from './component/ControlPanel';
+import { Container } from '@mui/material';
 
-function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Navigate to="/login" />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-      </Routes>
-    </Router>
-  );
-}
+const App = () => (
+    <Provider store={store}>
+        <Container sx={{ padding: 4 }}>
+            <ControlPanel />
+        </Container>
+    </Provider>
+);
 
 export default App;
